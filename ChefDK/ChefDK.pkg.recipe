@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest version of ChefDK and creates a package.</string>
+	<string>Uses com.github.autopkg.download.chefdk from nmcspadden-recipes to download the latest version of ChefDK and creates a package.</string>
 	<key>Identifier</key>
 	<string>com.github.kitzy.pkg.ChefDK</string>
 	<key>Input</key>
