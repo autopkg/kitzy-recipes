@@ -1,0 +1,46 @@
+<policy>
+    <general>
+        <site>
+            <id>%SITE_ID%</id>
+            <name>%SITE_NAME%</name>
+        <name>%PROD_NAME%</name>
+        <enabled>true</enabled>
+        <frequency>Ongoing</frequency>
+        <category>
+            <name>%POLICY_CATEGORY%</name>
+        </category>
+    </general>
+    <scope>
+      <all_computers>%ALL_COMPUTERS%</all_computers>
+        <!--Scope added by JSSImporter-->
+    </scope>
+    <package_configuration>
+        <!--Package added by JSSImporter-->
+    </package_configuration>
+    <scripts>
+        <!--Scripts added by JSSImporter-->
+    </scripts>
+    <reboot>
+      <startup_disk>Current Startup Disk</startup_disk>
+      <specify_startup/>
+      <no_user_logged_in>Do not restart</no_user_logged_in>
+      <user_logged_in>Do not restart</user_logged_in>
+      <minutes_until_reboot>5</minutes_until_reboot>
+      <file_vault_2_reboot>false</file_vault_2_reboot>
+    </reboot>
+    <self_service>
+        <!--Icons added by JSSImporter-->
+        <use_for_self_service>true</use_for_self_service>
+        <self_service_display_name>%PROD_NAME% - %version%</self_service_display_name>
+        <install_button_text>Install</install_button_text>
+        <reinstall_button_text>Reinstall</reinstall_button_text>
+        <self_service_description>%SELF_SERVICE_DESCRIPTION%</self_service_description>
+        <force_users_to_view_description>%FORCE_USERS_TO_VIEW_DESCRIPTION%</force_users_to_view_description>
+    </self_service>
+    <maintenance>
+        <recon>true</recon>
+    </maintenance>
+    <files_processes>
+    <run_command>%RUN_COMMAND%</run_command>
+  </files_processes>
+</policy>
