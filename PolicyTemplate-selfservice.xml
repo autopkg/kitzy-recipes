@@ -3,7 +3,7 @@
         <site>
             <id>%SITE_ID%</id>
             <name>%SITE_NAME%</name>
-        <name>%PROD_NAME%</name>
+        <name>%POLICY_NAME%</name>
         <enabled>true</enabled>
         <frequency>Ongoing</frequency>
         <category>
