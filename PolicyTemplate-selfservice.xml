@@ -3,6 +3,7 @@
         <site>
             <id>%SITE_ID%</id>
             <name>%SITE_NAME%</name>
+        </site>
         <name>%POLICY_NAME%</name>
         <enabled>true</enabled>
         <frequency>Ongoing</frequency>
