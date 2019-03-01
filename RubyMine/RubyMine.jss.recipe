@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of 1Password 6 and builds a package. Then, uploads to the JSS.</string>
+	<string>Downloads the current release version of RubyMine and builds a package. Then, uploads to the JSS.</string>
 	<key>Identifier</key>
 	<string>com.github.kitzy.jss.RubyMine</string>
 	<key>Input</key>
