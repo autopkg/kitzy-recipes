@@ -23,7 +23,7 @@
 		<key>SELF_SERVICE_DESCRIPTION</key>
 		<string>Upload and store files from any folder on your computer, camera, and SD cards in the cloud. You can find your content on any phone, tablet, or computer using Google Drive, and your photos and videos in Google Photos.</string>
 		<key>SELF_SERVICE_ICON</key>
-		<string>Backup and Sync.png</string>
+		<string>BackupAndSync.png</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.4.0</string>
