@@ -16,6 +16,8 @@
 		<string>SmartGroupTemplate.xml</string>
 		<key>NAME</key>
 		<string>ZoomPresence</string>
+		<key>JSS_INVENTORY_NAME</key>
+		<string>ZoomPresence.app</string>
 		<key>POLICY_CATEGORY</key>
 		<string>Testing</string>
 		<key>POLICY_TEMPLATE</key>
