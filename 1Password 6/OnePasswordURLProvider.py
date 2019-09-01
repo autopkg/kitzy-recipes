@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 #
 from __future__ import absolute_import
-import urllib2
 import json
 
 from autopkglib import Processor, ProcessorError
 
+try:
+    from urllib.request import urlopen  # For Python 3
+except ImportError:
+    from urllib2 import urlopen  # For Python 2
 
 __all__ = ["OnePasswordURLProvider"]
 
@@ -51,7 +54,7 @@ class OnePasswordURLProvider(Processor):
     def download_update_info(self, base_url):
         """Downloads the update url and returns a json object"""
         try:
-            f = urllib2.urlopen(base_url)
+            f = urlopen(base_url)
             json_data = json.load(f)
         except BaseException as e:
             raise ProcessorError("Can't download %s: %s" % (base_url, e))
