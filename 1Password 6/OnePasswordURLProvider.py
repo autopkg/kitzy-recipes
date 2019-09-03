@@ -57,7 +57,7 @@ class OnePasswordURLProvider(Processor):
         try:
             f = urlopen(base_url)
             json_data = json.load(f)
-        except BaseException as e:
+        except Exception as e:
             raise ProcessorError("Can't download %s: %s" % (base_url, e))
 
         return json_data
