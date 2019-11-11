@@ -7,7 +7,7 @@
 		and appends the version to the end of the filename.
 		Then, uploads to the JSS.</string>
 	<key>Identifier</key>
-	<string>com.github.kitzy.jss.MicrosoftPowerPoint2016</string>
+	<string>com.github.kitzy.jss.MicrosoftPowerPoint2019</string>
 	<key>Input</key>
 	<dict>
 		<key>CATEGORY</key>
