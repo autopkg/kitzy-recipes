@@ -1,0 +1,14 @@
+Description: Downloads the latest version of Chef Workstation and creates a package.
+Identifier: com.github.kitzy.pkg.ChefWorkstation
+Input:
+  NAME: Chef Workstation
+MinimumVersion: '2.3'
+ParentRecipe: com.github.homebysix.download.ChefWorkstation
+Process:
+- Processor: FileFinder
+  Arguments:
+    pattern: '%pathname%/chef-workstation-*.pkg'
+- Processor: PkgCopier
+  Arguments:
+    source_pkg: '%pathname%/chef-workstation-*.pkg'
+    pkg_path: '%RECIPE_CACHE_DIR%/%found_basename%'
