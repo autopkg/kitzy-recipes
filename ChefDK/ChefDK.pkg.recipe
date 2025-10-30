@@ -16,6 +16,15 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>warning_message</key>
+				<string>ChefDK was deprecated on July 13, 2021 and has been replaced by Chef Workstation. This recipe will be removed in a future release.</string>
+			</dict>
+			<key>Processor</key>
+			<string>DeprecationWarning</string>
+		</dict>
+		<dict>
 		<key>Arguments</key>
 		<dict>
 				<key>flat_pkg_path</key>
