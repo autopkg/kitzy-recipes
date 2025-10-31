@@ -1,0 +1,8 @@
+Description: Downloads the latest version of Claude and creates a package.
+Identifier: com.github.kitzy.pkg.Claude
+Input:
+  NAME: Claude
+MinimumVersion: '2.3'
+ParentRecipe: com.github.almenscorner.download.Claude
+Process:
+- Processor: AppPkgCreator
