@@ -1,0 +1,24 @@
+Description: Downloads the latest version of Elgato Stream Deck and copies the package.
+Identifier: com.github.kitzy.pkg.ElgatoStreamDeck
+Input:
+  NAME: Elgato Stream Deck
+MinimumVersion: '2.3'
+ParentRecipe: com.github.dataJAR-recipes.download.Elgato Stream Deck
+Process:
+- Processor: FlatPkgUnpacker
+  Arguments:
+    flat_pkg_path: '%pathname%'
+    destination_path: '%RECIPE_CACHE_DIR%/unpack'
+- Processor: PkgPayloadUnpacker
+  Arguments:
+    pkg_payload_path: '%RECIPE_CACHE_DIR%/unpack/Stream_Deck.pkg/Payload'
+    destination_path: '%RECIPE_CACHE_DIR%/payload'
+    purge_destination: true
+- Processor: Versioner
+  Arguments:
+    input_plist_path: '%RECIPE_CACHE_DIR%/payload/Applications/Stream Deck.app/Contents/Info.plist'
+    plist_version_key: CFBundleShortVersionString
+- Processor: PkgCopier
+  Arguments:
+    source_pkg: '%pathname%'
+    pkg_path: '%RECIPE_CACHE_DIR%/ElgatoStreamDeck-%version%.pkg'
