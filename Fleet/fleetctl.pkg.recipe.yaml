@@ -1,0 +1,52 @@
+Description: Downloads the latest version of fleetctl and creates a package that installs it to /usr/local/bin.
+Identifier: com.github.kitzy.pkg.fleetctl
+Input:
+  NAME: fleetctl
+MinimumVersion: '2.3'
+ParentRecipe: com.github.kitzy.download.fleetctl
+Process:
+- Processor: FileFinder
+  Arguments:
+    pattern: '%RECIPE_CACHE_DIR%/unarchived/fleetctl_v*_macos'
+    find_method: glob
+- Processor: FindAndReplace
+  Comment: Remove path prefix
+  Arguments:
+    find: '%RECIPE_CACHE_DIR%/unarchived/fleetctl_v'
+    replace: ''
+    input_string: '%found_filename%'
+    result_output_var_name: version_with_suffix
+- Processor: FindAndReplace
+  Comment: Remove _macos suffix
+  Arguments:
+    find: '_macos'
+    replace: ''
+    input_string: '%version_with_suffix%'
+    result_output_var_name: pkg_version
+- Processor: PkgRootCreator
+  Arguments:
+    pkgroot: '%RECIPE_CACHE_DIR%/pkgroot'
+    pkgdirs:
+      usr: '0755'
+      usr/local: '0755'
+      usr/local/bin: '0755'
+- Processor: FileFinder
+  Arguments:
+    pattern: '%RECIPE_CACHE_DIR%/unarchived/fleetctl_*/fleetctl'
+- Processor: Copier
+  Arguments:
+    source_path: '%found_filename%'
+    destination_path: '%pkgroot%/usr/local/bin/fleetctl'
+- Processor: PkgCreator
+  Arguments:
+    pkg_request:
+      pkgname: '%NAME%-%pkg_version%'
+      pkgdir: '%RECIPE_CACHE_DIR%'
+      id: com.fleetdm.fleetctl
+      version: '%pkg_version%'
+      options: purge_ds_store
+      chown:
+      - path: usr/local/bin/fleetctl
+        user: root
+        group: wheel
+        mode: '0755'
