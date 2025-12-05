@@ -1,0 +1,19 @@
+Description: Downloads the latest version of munkitools from macadmins/munki-builds releases.
+Identifier: com.github.kitzy.download.munkitools
+Input:
+  NAME: munkitools
+MinimumVersion: '2.3'
+Process:
+- Processor: GitHubReleasesInfoProvider
+  Arguments:
+    github_repo: macadmins/munki-builds
+    asset_regex: munkitools-.*\.pkg
+- Processor: URLDownloader
+- Processor: EndOfCheckPhase
+- Processor: CodeSignatureVerifier
+  Arguments:
+    input_path: '%pathname%'
+    expected_authority_names:
+    - 'Developer ID Installer: Mac Admins Open Source (T4SK8ZXCXG)'
+    - 'Developer ID Certification Authority'
+    - 'Apple Root CA'
