@@ -17,3 +17,5 @@ Process:
     - 'Developer ID Installer: Mac Admins Open Source (T4SK8ZXCXG)'
     - 'Developer ID Certification Authority'
     - 'Apple Root CA'
+Output:
+  pkg_path: '%pathname%'
