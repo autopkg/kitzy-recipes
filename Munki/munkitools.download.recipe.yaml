@@ -9,7 +9,6 @@ Process:
     github_repo: macadmins/munki-builds
     asset_regex: munkitools-.*\.pkg
 - Processor: URLDownloader
-- Processor: EndOfCheckPhase
 - Processor: CodeSignatureVerifier
   Arguments:
     input_path: '%pathname%'
@@ -17,5 +16,6 @@ Process:
     - 'Developer ID Installer: Mac Admins Open Source (T4SK8ZXCXG)'
     - 'Developer ID Certification Authority'
     - 'Apple Root CA'
+- Processor: EndOfCheckPhase
 Output:
   pkg_path: '%pathname%'
