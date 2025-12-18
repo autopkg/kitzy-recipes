@@ -1,0 +1,19 @@
+Description: Downloads the latest version of icongrabber from macadmins/icongrabber releases.
+Identifier: com.github.kitzy.download.icongrabber
+Input:
+  NAME: icongrabber
+MinimumVersion: '2.3'
+Process:
+- Processor: GitHubReleasesInfoProvider
+  Arguments:
+    github_repo: macadmins/icongrabber
+    asset_regex: icongrabber-.*\.pkg
+- Processor: URLDownloader
+- Processor: CodeSignatureVerifier
+  Arguments:
+    input_path: '%pathname%'
+    expected_authority_names:
+    - 'Developer ID Installer: Mac Admins Open Source (T4SK8ZXCXG)'
+    - 'Developer ID Certification Authority'
+    - 'Apple Root CA'
+- Processor: EndOfCheckPhase
