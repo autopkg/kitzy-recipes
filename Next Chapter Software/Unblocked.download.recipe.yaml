@@ -1,0 +1,32 @@
+Description: Downloads the latest version of Unblocked as a pkg.
+Identifier: com.github.kitzy.download.Unblocked
+Input:
+  NAME: Unblocked
+MinimumVersion: '2.3'
+Process:
+- Arguments:
+    re_pattern: '"productVersion":"([^"]+)"'
+    result_output_var_name: version
+    url: https://getunblocked.com/api/versionInfo/public
+  Processor: URLTextSearcher
+- Arguments:
+    re_pattern: '"desktopMacARMDownloadUrl":"([^"]+)"'
+    result_output_var_name: download_url
+    url: https://getunblocked.com/api/versionInfo/public
+  Processor: URLTextSearcher
+- Arguments:
+    filename: '%NAME%-%version%.pkg'
+    url: '%download_url%'
+  Processor: URLDownloader
+- Processor: EndOfCheckPhase
+- Arguments:
+    input_path: '%pathname%'
+    requirement: anchor apple generic and identifier "com.nextchaptersoftware.MacInstaller"
+      and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate
+      1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13]
+      /* exists */ and certificate leaf[subject.OU] = "2FNXZ6K9M4")
+  Processor: CodeSignatureVerifier
+- Arguments:
+    input_plist_path: '%pathname%/Contents/Info.plist'
+    plist_version_key: CFBundleShortVersionString
+  Processor: Versioner
