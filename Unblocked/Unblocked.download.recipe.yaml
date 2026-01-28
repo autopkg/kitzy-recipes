@@ -26,7 +26,3 @@ Process:
       1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13]
       /* exists */ and certificate leaf[subject.OU] = "2FNXZ6K9M4")
   Processor: CodeSignatureVerifier
-- Arguments:
-    input_plist_path: '%pathname%/Contents/Info.plist'
-    plist_version_key: CFBundleShortVersionString
-  Processor: Versioner
