@@ -6,3 +6,5 @@ MinimumVersion: '2.3'
 ParentRecipe: com.github.almenscorner.download.Claude
 Process:
 - Processor: AppPkgCreator
+  Arguments:
+    app_path: '%RECIPE_CACHE_DIR%/%NAME%.app'
