@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest version of GPG Suite using gerardkok's download recipe and creates a package.</string>
+	<string>Downloads the latest version of GPG Suite and creates a package.</string>
 	<key>Identifier</key>
 	<string>com.github.kitzy.pkg.GPGSuite</string>
 	<key>Input</key>
@@ -12,7 +12,7 @@
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.gerardkok.download.GPGSuite</string>
+	<string>com.github.kitzy.download.GPGSuite</string>
 	<key>Process</key>
 	<array>
 		<dict>
