@@ -12,7 +12,7 @@
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.kitzy.download.GPGSuite</string>
+	<string>com.github.n8felton.GPGSuite.download</string>
 	<key>Process</key>
 	<array>
 		<dict>
