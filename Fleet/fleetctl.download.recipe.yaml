@@ -1,4 +1,4 @@
-Description: Downloads the latest version of fleetctl for macOS.
+Description: Downloads the latest signed fleetctl pkg for macOS from the fleetdm/fleet GitHub releases.
 Identifier: com.github.kitzy.download.fleetctl
 Input:
   NAME: fleetctl
@@ -7,13 +7,8 @@ Process:
 - Processor: GitHubReleasesInfoProvider
   Arguments:
     github_repo: fleetdm/fleet
-    asset_regex: fleetctl_v.*_macos\.zip
+    asset_regex: fleetctl_v.*_mac\.pkg
 - Processor: URLDownloader
   Arguments:
-    filename: '%NAME%.zip'
+    filename: '%NAME%.pkg'
 - Processor: EndOfCheckPhase
-- Processor: Unarchiver
-  Arguments:
-    archive_path: '%pathname%'
-    destination_path: '%RECIPE_CACHE_DIR%/unarchived'
-    purge_destination: true
